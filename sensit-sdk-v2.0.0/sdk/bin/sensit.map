@@ -1536,7 +1536,7 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
 .iplt           0x00000000080059f0        0x0
  .iplt          0x00000000080059f0        0x0 obj/error.o
 
-.rodata         0x00000000080059f0      0x3f4
+.rodata         0x00000000080059f0      0x3f8
                 0x00000000080059f0                . = ALIGN (0x4)
  *(.rodata)
  .rodata        0x00000000080059f0       0x10 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
@@ -1554,50 +1554,49 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
  .rodata        0x0000000008005da0       0x40 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
  *(.rodata*)
  .rodata.str1.1
-                0x0000000008005de0        0x3 obj/main.o
-                0x0000000008005de4                . = ALIGN (0x4)
- *fill*         0x0000000008005de3        0x1 
+                0x0000000008005de0        0x8 obj/main.o
+                0x0000000008005de8                . = ALIGN (0x4)
 
-.rel.dyn        0x0000000008005de4        0x0
- .rel.iplt      0x0000000008005de4        0x0 obj/error.o
+.rel.dyn        0x0000000008005de8        0x0
+ .rel.iplt      0x0000000008005de8        0x0 obj/error.o
 
-.ARM.extab      0x0000000008005de4        0x0
-                0x0000000008005de4                . = ALIGN (0x4)
+.ARM.extab      0x0000000008005de8        0x0
+                0x0000000008005de8                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008005de4                . = ALIGN (0x4)
+                0x0000000008005de8                . = ALIGN (0x4)
 
-.ARM            0x0000000008005de4        0x0
-                0x0000000008005de4                . = ALIGN (0x4)
-                0x0000000008005de4                __exidx_start = .
+.ARM            0x0000000008005de8        0x0
+                0x0000000008005de8                . = ALIGN (0x4)
+                0x0000000008005de8                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008005de4                __exidx_end = .
-                0x0000000008005de4                . = ALIGN (0x4)
+                0x0000000008005de8                __exidx_end = .
+                0x0000000008005de8                . = ALIGN (0x4)
 
-.preinit_array  0x0000000008005de4        0x0
-                0x0000000008005de4                . = ALIGN (0x4)
-                0x0000000008005de4                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008005de8        0x0
+                0x0000000008005de8                . = ALIGN (0x4)
+                0x0000000008005de8                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008005de4                PROVIDE (__preinit_array_end = .)
-                0x0000000008005de4                . = ALIGN (0x4)
+                0x0000000008005de8                PROVIDE (__preinit_array_end = .)
+                0x0000000008005de8                . = ALIGN (0x4)
 
-.init_array     0x0000000008005de4        0x0
-                0x0000000008005de4                . = ALIGN (0x4)
-                0x0000000008005de4                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008005de8        0x0
+                0x0000000008005de8                . = ALIGN (0x4)
+                0x0000000008005de8                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
-                0x0000000008005de4                PROVIDE (__init_array_end = .)
-                0x0000000008005de4                . = ALIGN (0x4)
+                0x0000000008005de8                PROVIDE (__init_array_end = .)
+                0x0000000008005de8                . = ALIGN (0x4)
 
-.fini_array     0x0000000008005de4        0x0
-                0x0000000008005de4                . = ALIGN (0x4)
+.fini_array     0x0000000008005de8        0x0
+                0x0000000008005de8                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008005de4                . = ALIGN (0x4)
-                0x0000000008005de4                _sidata = LOADADDR (.data)
+                0x0000000008005de8                . = ALIGN (0x4)
+                0x0000000008005de8                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x1e8 load address 0x0000000008005de4
+.data           0x0000000020000000      0x1e8 load address 0x0000000008005de8
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -1614,11 +1613,11 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
  *fill*         0x00000000200001e7        0x1 
                 0x00000000200001e8                _edata = .
 
-.igot.plt       0x00000000200001e8        0x0 load address 0x0000000008005fcc
+.igot.plt       0x00000000200001e8        0x0 load address 0x0000000008005fd0
  .igot.plt      0x00000000200001e8        0x0 obj/error.o
                 0x00000000200001e8                . = ALIGN (0x4)
 
-.bss            0x00000000200001e8      0x5d0 load address 0x0000000008005fcc
+.bss            0x00000000200001e8      0x5d0 load address 0x0000000008005fd0
                 0x00000000200001e8                _sbss = .
                 0x00000000200001e8                __bss_start__ = _sbss
  *(.bss)
@@ -1669,7 +1668,7 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
                 0x00000000200007b8                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x00000000200007b8      0x400 load address 0x0000000008005fcc
+                0x00000000200007b8      0x400 load address 0x0000000008005fd0
                 0x00000000200007b8                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
@@ -1782,7 +1781,7 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
                 0x0000000000000887       0x31 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
 OUTPUT(bin/sensit.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x21ad
+.debug_info     0x0000000000000000     0x21ae
  .debug_info    0x0000000000000000      0x3f1 obj/error.o
  .debug_info    0x00000000000003f1      0x206 obj/button.o
  .debug_info    0x00000000000005f7      0x323 obj/battery.o
@@ -1793,7 +1792,7 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_info    0x00000000000011e2      0x38f obj/hts221.o
  .debug_info    0x0000000000001571      0x399 obj/ltr329.o
  .debug_info    0x000000000000190a      0x553 obj/fxos8700.o
- .debug_info    0x0000000000001e5d      0x350 obj/main.o
+ .debug_info    0x0000000000001e5d      0x351 obj/main.o
 
 .debug_abbrev   0x0000000000000000      0xe15
  .debug_abbrev  0x0000000000000000      0x154 obj/error.o
