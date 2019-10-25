@@ -120,7 +120,7 @@ int main()
         {
 
             /* Send the message */
-            err = RADIO_API_send_message(RGB_BLUE, (u8 *)"sixtine", 10, FALSE, NULL);
+            err = RADIO_API_send_message(RGB_BLUE, (u8 *)"gau-amc", 7, FALSE, NULL);
             /* Parse the error code */
             ERROR_parser(err);
 
