@@ -35,8 +35,17 @@ int main()
     bool send = FALSE;
 
     /* Discovery payload variable */
-    discovery_data_s data = {0};
-    discovery_payload_s payload;
+     discovery_data_s data = {0};
+struct message
+{
+    unsigned short x;
+    unsigned short y;
+    unsigned short z;
+};
+
+//message msg;
+    fxos8700_data_s* acc;
+
 
     /* Start of initialization */
 
@@ -53,6 +62,8 @@ int main()
 
     /* Put accelerometer in transient mode */
     FXOS8700_set_transient_mode(FXOS8700_RANGE_2G, VIBRATION_THRESHOLD, VIBRATION_COUNT);
+
+   FXOS8700_read_acceleration(acc);
 
     /* Clear pending interrupt */
     pending_interrupt = 0;
@@ -132,10 +143,10 @@ int main()
         if (send == TRUE)
         {
             /* Build the payload */
-            DISCOVERY_build_payload(&payload, MODE_VIBRATION, &data);
+            DISCOVERY_build_payload(&acc, MODE_VIBRATION, &data);
 
             /* Send the message */
-            err = RADIO_API_send_message(RGB_BLUE, (u8*)&payload, DISCOVERY_PAYLOAD_SIZE, FALSE, NULL);
+            err = RADIO_API_send_message(RGB_BLUE, (u8*)&acc, DISCOVERY_PAYLOAD_SIZE, FALSE, NULL);
             /* Parse the error code */
             ERROR_parser(err);
 
