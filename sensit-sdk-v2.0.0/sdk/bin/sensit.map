@@ -185,6 +185,8 @@ Discarded input sections
  .data          0x0000000000000000        0x0 obj/fcc.o
  .text          0x0000000000000000        0x0 obj/hts221.o
  .data          0x0000000000000000        0x0 obj/hts221.o
+ .text.HTS221_measure
+                0x0000000000000000       0xdc obj/hts221.o
  .text          0x0000000000000000        0x0 obj/ltr329.o
  .data          0x0000000000000000        0x0 obj/ltr329.o
  .bss           0x0000000000000000        0x0 obj/ltr329.o
@@ -197,30 +199,10 @@ Discarded input sections
  .text          0x0000000000000000        0x0 obj/fxos8700.o
  .data          0x0000000000000000        0x0 obj/fxos8700.o
  .bss           0x0000000000000000        0x0 obj/fxos8700.o
- .text.FXOS8700_reset
-                0x0000000000000000       0x28 obj/fxos8700.o
- .text.FXOS8700_init
-                0x0000000000000000       0x2e obj/fxos8700.o
  .text.FXOS8700_set_standby_mode
                 0x0000000000000000       0x22 obj/fxos8700.o
- .text.FXOS8700_set_transient_mode
-                0x0000000000000000       0xf0 obj/fxos8700.o
- .text.FXOS8700_clear_transient_interrupt
-                0x0000000000000000       0x28 obj/fxos8700.o
  .text.FXOS8700_read_acceleration
                 0x0000000000000000       0x54 obj/fxos8700.o
- .debug_info    0x0000000000000000      0x553 obj/fxos8700.o
- .debug_abbrev  0x0000000000000000      0x182 obj/fxos8700.o
- .debug_loc     0x0000000000000000      0x289 obj/fxos8700.o
- .debug_aranges
-                0x0000000000000000       0x48 obj/fxos8700.o
- .debug_ranges  0x0000000000000000       0x38 obj/fxos8700.o
- .debug_line    0x0000000000000000      0x3a9 obj/fxos8700.o
- .debug_str     0x0000000000000000      0x332 obj/fxos8700.o
- .comment       0x0000000000000000       0x77 obj/fxos8700.o
- .debug_frame   0x0000000000000000       0xc4 obj/fxos8700.o
- .ARM.attributes
-                0x0000000000000000       0x2c obj/fxos8700.o
  .text          0x0000000000000000        0x0 obj/AT_parser.o
  .data          0x0000000000000000        0x0 obj/AT_parser.o
  .bss           0x0000000000000000        0x0 obj/AT_parser.o
@@ -339,8 +321,6 @@ Discarded input sections
                 0x0000000000000000       0x70 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
  .text.SENSIT_API_get_reed_switch_state
                 0x0000000000000000       0x24 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
- .text.SENSIT_API_configure_fxos8700_interrupt
-                0x0000000000000000       0x30 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
  .text.SENSIT_API_init_nv_mem
                 0x0000000000000000       0x24 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
  .text.SENSIT_API_get_nv_mem
@@ -860,7 +840,7 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
                 0x0000000008000000                g_pfnVectors
                 0x00000000080000c0                . = ALIGN (0x4)
 
-.text           0x00000000080000c0     0x5adc
+.text           0x00000000080000c0     0x5ba8
                 0x00000000080000c0                . = ALIGN (0x4)
  *(.text)
  .text          0x00000000080000c0       0x14 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v6-m/nofp/libgcc.a(_thumb1_case_uqi.o)
@@ -942,658 +922,671 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
  .text.HTS221_init
                 0x000000000800122c       0xbc obj/hts221.o
                 0x000000000800122c                HTS221_init
- .text.HTS221_measure
-                0x00000000080012e8       0xdc obj/hts221.o
-                0x00000000080012e8                HTS221_measure
  .text.LTR329_init
-                0x00000000080013c4       0x50 obj/ltr329.o
-                0x00000000080013c4                LTR329_init
+                0x00000000080012e8       0x50 obj/ltr329.o
+                0x00000000080012e8                LTR329_init
+ .text.FXOS8700_reset
+                0x0000000008001338       0x28 obj/fxos8700.o
+                0x0000000008001338                FXOS8700_reset
+ .text.FXOS8700_init
+                0x0000000008001360       0x2e obj/fxos8700.o
+                0x0000000008001360                FXOS8700_init
+ *fill*         0x000000000800138e        0x2 
+ .text.FXOS8700_set_transient_mode
+                0x0000000008001390       0xf0 obj/fxos8700.o
+                0x0000000008001390                FXOS8700_set_transient_mode
+ .text.FXOS8700_clear_transient_interrupt
+                0x0000000008001480       0x28 obj/fxos8700.o
+                0x0000000008001480                FXOS8700_clear_transient_interrupt
  .text.DISCOVERY_build_payload
-                0x0000000008001414      0x108 obj/discovery.o
-                0x0000000008001414                DISCOVERY_build_payload
+                0x00000000080014a8      0x108 obj/discovery.o
+                0x00000000080014a8                DISCOVERY_build_payload
  .text.startup.main
-                0x000000000800151c       0xec obj/main.o
-                0x000000000800151c                main
+                0x00000000080015b0       0xf4 obj/main.o
+                0x00000000080015b0                main
  .text.MCU_API_malloc
-                0x0000000008001608       0x14 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x0000000008001608                MCU_API_malloc
+                0x00000000080016a4       0x14 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x00000000080016a4                MCU_API_malloc
  .text.MCU_API_free
-                0x000000000800161c        0x4 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x000000000800161c                MCU_API_free
+                0x00000000080016b8        0x4 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x00000000080016b8                MCU_API_free
  .text.MCU_API_get_voltage_temperature
-                0x0000000008001620       0x22 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x0000000008001620                MCU_API_get_voltage_temperature
+                0x00000000080016bc       0x22 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x00000000080016bc                MCU_API_get_voltage_temperature
  .text.MCU_API_delay
-                0x0000000008001642       0x3e lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x0000000008001642                MCU_API_delay
+                0x00000000080016de       0x3e lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x00000000080016de                MCU_API_delay
  .text.MCU_API_aes_128_cbc_encrypt
-                0x0000000008001680       0x62 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x0000000008001680                MCU_API_aes_128_cbc_encrypt
+                0x000000000800171c       0x62 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x000000000800171c                MCU_API_aes_128_cbc_encrypt
  .text.MCU_API_get_nv_mem
-                0x00000000080016e2        0xe lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x00000000080016e2                MCU_API_get_nv_mem
+                0x000000000800177e        0xe lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x000000000800177e                MCU_API_get_nv_mem
  .text.MCU_API_set_nv_mem
-                0x00000000080016f0       0x16 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x00000000080016f0                MCU_API_set_nv_mem
- *fill*         0x0000000008001706        0x2 
+                0x000000000800178c       0x16 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x000000000800178c                MCU_API_set_nv_mem
+ *fill*         0x00000000080017a2        0x2 
  .text.MCU_API_timer_start_carrier_sense
-                0x0000000008001708       0x60 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x0000000008001708                MCU_API_timer_start_carrier_sense
+                0x00000000080017a4       0x60 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x00000000080017a4                MCU_API_timer_start_carrier_sense
  .text.TIM16_IRQHandler
-                0x0000000008001768       0x24 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x0000000008001768                TIM16_IRQHandler
+                0x0000000008001804       0x24 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x0000000008001804                TIM16_IRQHandler
  .text.MCU_API_timer_start
-                0x000000000800178c        0xc lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x000000000800178c                MCU_API_timer_start
+                0x0000000008001828        0xc lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x0000000008001828                MCU_API_timer_start
  .text.MCU_API_timer_stop
-                0x0000000008001798        0x4 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x0000000008001798                MCU_API_timer_stop
+                0x0000000008001834        0x4 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x0000000008001834                MCU_API_timer_stop
  .text.MCU_API_timer_stop_carrier_sense
-                0x000000000800179c       0x38 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x000000000800179c                MCU_API_timer_stop_carrier_sense
+                0x0000000008001838       0x38 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x0000000008001838                MCU_API_timer_stop_carrier_sense
  .text.MCU_API_timer_wait_for_end
-                0x00000000080017d4       0x10 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x00000000080017d4                MCU_API_timer_wait_for_end
+                0x0000000008001870       0x10 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x0000000008001870                MCU_API_timer_wait_for_end
  .text.MCU_API_report_test_result
-                0x00000000080017e4        0xa lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x00000000080017e4                MCU_API_report_test_result
+                0x0000000008001880        0xa lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x0000000008001880                MCU_API_report_test_result
  .text.MCU_API_get_device_id
-                0x00000000080017ee       0x12 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
-                0x00000000080017ee                MCU_API_get_device_id
+                0x000000000800188a       0x12 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x000000000800188a                MCU_API_get_device_id
  .text.NVMEM_API_get_device_id
-                0x0000000008001800       0x2c lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x0000000008001800                NVMEM_API_get_device_id
+                0x000000000800189c       0x2c lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x000000000800189c                NVMEM_API_get_device_id
  .text.NVMEM_API_get_frequency_calibration
-                0x000000000800182c       0x1c lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x000000000800182c                NVMEM_API_get_frequency_calibration
+                0x00000000080018c8       0x1c lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x00000000080018c8                NVMEM_API_get_frequency_calibration
  .text.NVMEM_API_get_radio_configuration
-                0x0000000008001848       0x14 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x0000000008001848                NVMEM_API_get_radio_configuration
+                0x00000000080018e4       0x14 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x00000000080018e4                NVMEM_API_get_radio_configuration
  .text.NVMEM_API_compute_aes
-                0x000000000800185c       0xc8 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x000000000800185c                NVMEM_API_compute_aes
+                0x00000000080018f8       0xc8 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x00000000080018f8                NVMEM_API_compute_aes
  .text.NVMEM_API_init_page_index
-                0x0000000008001924       0xb4 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x0000000008001924                NVMEM_API_init_page_index
+                0x00000000080019c0       0xb4 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x00000000080019c0                NVMEM_API_init_page_index
  .text.NVMEM_API_init
-                0x00000000080019d8       0xa0 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x00000000080019d8                NVMEM_API_init
+                0x0000000008001a74       0xa0 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x0000000008001a74                NVMEM_API_init
  .text.NVMEM_API_set_data
-                0x0000000008001a78       0xd8 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x0000000008001a78                NVMEM_API_set_data
+                0x0000000008001b14       0xd8 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x0000000008001b14                NVMEM_API_set_data
  .text.NVMEM_API_get_data
-                0x0000000008001b50       0x58 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
-                0x0000000008001b50                NVMEM_API_get_data
+                0x0000000008001bec       0x58 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x0000000008001bec                NVMEM_API_get_data
  .text.RADIO_init
-                0x0000000008001ba8       0x1c lib/libSENSIT_SDK_V2.0.0.a(radio.o)
-                0x0000000008001ba8                RADIO_init
+                0x0000000008001c44       0x1c lib/libSENSIT_SDK_V2.0.0.a(radio.o)
+                0x0000000008001c44                RADIO_init
  .text.RADIO_power_on
-                0x0000000008001bc4       0x44 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
-                0x0000000008001bc4                RADIO_power_on
+                0x0000000008001c60       0x44 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
+                0x0000000008001c60                RADIO_power_on
  .text.RADIO_power_off
-                0x0000000008001c08       0x2c lib/libSENSIT_SDK_V2.0.0.a(radio.o)
-                0x0000000008001c08                RADIO_power_off
+                0x0000000008001ca4       0x2c lib/libSENSIT_SDK_V2.0.0.a(radio.o)
+                0x0000000008001ca4                RADIO_power_off
  .text.RADIO_get_state
-                0x0000000008001c34        0xc lib/libSENSIT_SDK_V2.0.0.a(radio.o)
-                0x0000000008001c34                RADIO_get_state
+                0x0000000008001cd0        0xc lib/libSENSIT_SDK_V2.0.0.a(radio.o)
+                0x0000000008001cd0                RADIO_get_state
  .text.RADIO_set_rf_line
-                0x0000000008001c40       0x50 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
-                0x0000000008001c40                RADIO_set_rf_line
+                0x0000000008001cdc       0x50 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
+                0x0000000008001cdc                RADIO_set_rf_line
  .text.RADIO_is_600bps
-                0x0000000008001c90       0x18 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
-                0x0000000008001c90                RADIO_is_600bps
+                0x0000000008001d2c       0x18 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
+                0x0000000008001d2c                RADIO_is_600bps
  .text.RTC_init
-                0x0000000008001ca8       0x2c lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
-                0x0000000008001ca8                RTC_init
+                0x0000000008001d44       0x2c lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
+                0x0000000008001d44                RTC_init
  .text.RTC_get_current_time
-                0x0000000008001cd4        0xc lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
-                0x0000000008001cd4                RTC_get_current_time
+                0x0000000008001d70        0xc lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
+                0x0000000008001d70                RTC_get_current_time
  .text.RTC_set_alarm_timer
-                0x0000000008001ce0       0x14 lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
-                0x0000000008001ce0                RTC_set_alarm_timer
+                0x0000000008001d7c       0x14 lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
+                0x0000000008001d7c                RTC_set_alarm_timer
  .text.RTC_set_rx_timer
-                0x0000000008001cf4        0xc lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
-                0x0000000008001cf4                RTC_set_rx_timer
+                0x0000000008001d90        0xc lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
+                0x0000000008001d90                RTC_set_rx_timer
  .text.RTC_wait_frame
-                0x0000000008001d00       0x2c lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
-                0x0000000008001d00                RTC_wait_frame
+                0x0000000008001d9c       0x2c lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
+                0x0000000008001d9c                RTC_wait_frame
  .text.RTC_IRQHandler
-                0x0000000008001d2c       0x68 lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
-                0x0000000008001d2c                RTC_IRQHandler
- .text._init    0x0000000008001d94       0x1c lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001d94                _init
+                0x0000000008001dc8       0x68 lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
+                0x0000000008001dc8                RTC_IRQHandler
+ .text._init    0x0000000008001e30       0x1c lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001e30                _init
  .text.SENSIT_API_configure_radio
-                0x0000000008001db0       0x2a lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001db0                SENSIT_API_configure_radio
+                0x0000000008001e4c       0x2a lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001e4c                SENSIT_API_configure_radio
  .text.SENSIT_API_switch_radio
-                0x0000000008001dda       0x38 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001dda                SENSIT_API_switch_radio
- *fill*         0x0000000008001e12        0x2 
+                0x0000000008001e76       0x38 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001e76                SENSIT_API_switch_radio
+ *fill*         0x0000000008001eae        0x2 
  .text.SENSIT_API_reset
-                0x0000000008001e14       0x60 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001e14                SENSIT_API_reset
+                0x0000000008001eb0       0x60 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001eb0                SENSIT_API_reset
  .text.SENSIT_API_sleep
-                0x0000000008001e74        0xa lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001e74                SENSIT_API_sleep
+                0x0000000008001f10        0xa lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001f10                SENSIT_API_sleep
  .text.SENSIT_API_set_rtc_alarm
-                0x0000000008001e7e        0xa lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001e7e                SENSIT_API_set_rtc_alarm
+                0x0000000008001f1a        0xa lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001f1a                SENSIT_API_set_rtc_alarm
  .text.SENSIT_API_configure_button
-                0x0000000008001e88       0x50 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001e88                SENSIT_API_configure_button
+                0x0000000008001f24       0x50 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001f24                SENSIT_API_configure_button
  .text.SENSIT_API_get_button_state
-                0x0000000008001ed8       0x14 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001ed8                SENSIT_API_get_button_state
+                0x0000000008001f74       0x14 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001f74                SENSIT_API_get_button_state
  .text.SENSIT_API_set_rgb_led
-                0x0000000008001eec       0x30 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001eec                SENSIT_API_set_rgb_led
+                0x0000000008001f88       0x30 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001f88                SENSIT_API_set_rgb_led
  .text.SENSIT_API_set_white_led
-                0x0000000008001f1c       0x18 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001f1c                SENSIT_API_set_white_led
+                0x0000000008001fb8       0x18 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001fb8                SENSIT_API_set_white_led
  .text.SENSIT_API_get_battery_level
-                0x0000000008001f34        0xe lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001f34                SENSIT_API_get_battery_level
+                0x0000000008001fd0        0xe lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001fd0                SENSIT_API_get_battery_level
  .text.SENSIT_API_get_current_time
-                0x0000000008001f42        0xe lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001f42                SENSIT_API_get_current_time
+                0x0000000008001fde        0xe lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001fde                SENSIT_API_get_current_time
  .text.SENSIT_API_wait
-                0x0000000008001f50        0xa lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001f50                SENSIT_API_wait
+                0x0000000008001fec        0xa lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001fec                SENSIT_API_wait
  .text.SENSIT_API_write_read_i2c_bus
-                0x0000000008001f5a       0x20 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001f5a                SENSIT_API_write_read_i2c_bus
- *fill*         0x0000000008001f7a        0x2 
+                0x0000000008001ff6       0x20 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008001ff6                SENSIT_API_write_read_i2c_bus
+ *fill*         0x0000000008002016        0x2 
+ .text.SENSIT_API_configure_fxos8700_interrupt
+                0x0000000008002018       0x30 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008002018                SENSIT_API_configure_fxos8700_interrupt
  .text.SENSIT_API_reset_device_sequence_number
-                0x0000000008001f7c       0x20 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
-                0x0000000008001f7c                SENSIT_API_reset_device_sequence_number
+                0x0000000008002048       0x20 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x0000000008002048                SENSIT_API_reset_device_sequence_number
  .text.SIGFOX_API_open
-                0x0000000008001f9c      0x1b4 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
-                0x0000000008001f9c                SIGFOX_API_open
+                0x0000000008002068      0x1b4 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
+                0x0000000008002068                SIGFOX_API_open
  .text.SIGFOX_API_send_frame
-                0x0000000008002150       0x48 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
-                0x0000000008002150                SIGFOX_API_send_frame
+                0x000000000800221c       0x48 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
+                0x000000000800221c                SIGFOX_API_send_frame
  .text.SIGFOX_API_set_std_config
-                0x0000000008002198       0x90 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
-                0x0000000008002198                SIGFOX_API_set_std_config
+                0x0000000008002264       0x90 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
+                0x0000000008002264                SIGFOX_API_set_std_config
  .text.SIGFOX_INT_randomize
-                0x0000000008002228       0x16 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002228                SIGFOX_INT_randomize
+                0x00000000080022f4       0x16 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x00000000080022f4                SIGFOX_INT_randomize
  .text.SIGFOX_INT_get_max_micro_channel
-                0x000000000800223e       0x30 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x000000000800223e                SIGFOX_INT_get_max_micro_channel
+                0x000000000800230a       0x30 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x000000000800230a                SIGFOX_INT_get_max_micro_channel
  .text.SIGFOX_INT_get_macro_channel_index
-                0x000000000800226e       0x5a lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x000000000800226e                SIGFOX_INT_get_macro_channel_index
+                0x000000000800233a       0x5a lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x000000000800233a                SIGFOX_INT_get_macro_channel_index
  .text.SIGFOX_INT_dc_lbt_channel_pn_max
-                0x00000000080022c8       0x30 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x00000000080022c8                SIGFOX_INT_dc_lbt_channel_pn_max
+                0x0000000008002394       0x30 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002394                SIGFOX_INT_dc_lbt_channel_pn_max
  .text.SIGFOX_INT_dc_lbt_channel_pn_min
-                0x00000000080022f8       0x22 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x00000000080022f8                SIGFOX_INT_dc_lbt_channel_pn_min
+                0x00000000080023c4       0x22 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x00000000080023c4                SIGFOX_INT_dc_lbt_channel_pn_min
  .text.RETURN_CODE
-                0x000000000800231a        0x8 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x000000000800231a                RETURN_CODE
- *fill*         0x0000000008002322        0x2 
+                0x00000000080023e6        0x8 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x00000000080023e6                RETURN_CODE
+ *fill*         0x00000000080023ee        0x2 
  .text.SIGFOX_INT_compute_channels
-                0x0000000008002324      0x134 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002324                SIGFOX_INT_compute_channels
+                0x00000000080023f0      0x134 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x00000000080023f0                SIGFOX_INT_compute_channels
  .text.SIGFOX_INT_compute_carrier_sense_frequency
-                0x0000000008002458       0x2e lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002458                SIGFOX_INT_compute_carrier_sense_frequency
+                0x0000000008002524       0x2e lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002524                SIGFOX_INT_compute_carrier_sense_frequency
  .text.SIGFOX_INT_store_nvm
-                0x0000000008002486       0x32 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002486                SIGFOX_INT_store_nvm
+                0x0000000008002552       0x32 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002552                SIGFOX_INT_store_nvm
  .text.SIGFOX_INT_build_frame
-                0x00000000080024b8      0x1da lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x00000000080024b8                SIGFOX_INT_build_frame
- *fill*         0x0000000008002692        0x2 
+                0x0000000008002584      0x1da lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002584                SIGFOX_INT_build_frame
+ *fill*         0x000000000800275e        0x2 
  .text.SIGFOX_INT_prepare_transmission
-                0x0000000008002694       0x88 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002694                SIGFOX_INT_prepare_transmission
+                0x0000000008002760       0x88 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002760                SIGFOX_INT_prepare_transmission
  .text.SIGFOX_INT_send_single_frame
-                0x000000000800271c       0x98 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x000000000800271c                SIGFOX_INT_send_single_frame
+                0x00000000080027e8       0x98 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x00000000080027e8                SIGFOX_INT_send_single_frame
  .text.SIGFOX_INT_execute_carrier_sense
-                0x00000000080027b4       0x3a lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x00000000080027b4                SIGFOX_INT_execute_carrier_sense
+                0x0000000008002880       0x3a lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002880                SIGFOX_INT_execute_carrier_sense
  .text.SIGFOX_INT_downlink_configuration
-                0x00000000080027ee       0x4c lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x00000000080027ee                SIGFOX_INT_downlink_configuration
+                0x00000000080028ba       0x4c lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x00000000080028ba                SIGFOX_INT_downlink_configuration
  .text.SIGFOX_INT_get_received_frames
-                0x000000000800283a      0x10a lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x000000000800283a                SIGFOX_INT_get_received_frames
+                0x0000000008002906      0x10a lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002906                SIGFOX_INT_get_received_frames
  .text.SIGFOX_INT_process_downlink
-                0x0000000008002944       0x46 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002944                SIGFOX_INT_process_downlink
- *fill*         0x000000000800298a        0x2 
+                0x0000000008002a10       0x46 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002a10                SIGFOX_INT_process_downlink
+ *fill*         0x0000000008002a56        0x2 
  .text.SIGFOX_INT_compute_uplink_frequency
-                0x000000000800298c       0x94 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x000000000800298c                SIGFOX_INT_compute_uplink_frequency
+                0x0000000008002a58       0x94 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002a58                SIGFOX_INT_compute_uplink_frequency
  .text.SIGFOX_INT_process_uplink
-                0x0000000008002a20      0x28c lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002a20                SIGFOX_INT_process_uplink
+                0x0000000008002aec      0x28c lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002aec                SIGFOX_INT_process_uplink
  .text.SIGFOX_INT_execute_communication_sequence
-                0x0000000008002cac      0x118 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002cac                SIGFOX_INT_execute_communication_sequence
+                0x0000000008002d78      0x118 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002d78                SIGFOX_INT_execute_communication_sequence
  .text.SIGFOX_INT_get_device_id
-                0x0000000008002dc4       0x18 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008002dc4                SIGFOX_INT_get_device_id
+                0x0000000008002e90       0x18 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008002e90                SIGFOX_INT_get_device_id
  .text.SIGFOX_PN_next_pn
-                0x0000000008002ddc       0x50 lib/libSENSIT_SDK_V2.0.0.a(sigfox_pn.o)
-                0x0000000008002ddc                SIGFOX_PN_next_pn
+                0x0000000008002ea8       0x50 lib/libSENSIT_SDK_V2.0.0.a(sigfox_pn.o)
+                0x0000000008002ea8                SIGFOX_PN_next_pn
  .text.SIGFOX_SCRAMB_compute
-                0x0000000008002e2c       0x8c lib/libSENSIT_SDK_V2.0.0.a(sigfox_scramb.o)
-                0x0000000008002e2c                SIGFOX_SCRAMB_compute
+                0x0000000008002ef8       0x8c lib/libSENSIT_SDK_V2.0.0.a(sigfox_scramb.o)
+                0x0000000008002ef8                SIGFOX_SCRAMB_compute
  .text.SLEEP_handler
-                0x0000000008002eb8       0x88 lib/libSENSIT_SDK_V2.0.0.a(sleep.o)
-                0x0000000008002eb8                SLEEP_handler
+                0x0000000008002f84       0x88 lib/libSENSIT_SDK_V2.0.0.a(sleep.o)
+                0x0000000008002f84                SLEEP_handler
  .text.SPI_init
-                0x0000000008002f40       0x30 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
-                0x0000000008002f40                SPI_init
+                0x000000000800300c       0x30 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
+                0x000000000800300c                SPI_init
  .text.SPI_disable
-                0x0000000008002f70       0x34 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
-                0x0000000008002f70                SPI_disable
+                0x000000000800303c       0x34 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
+                0x000000000800303c                SPI_disable
  .text.SPI_enable
-                0x0000000008002fa4       0x30 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
-                0x0000000008002fa4                SPI_enable
+                0x0000000008003070       0x30 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
+                0x0000000008003070                SPI_enable
  .text.SPI_write_read
-                0x0000000008002fd4       0x2c lib/libSENSIT_SDK_V2.0.0.a(spi.o)
-                0x0000000008002fd4                SPI_write_read
+                0x00000000080030a0       0x2c lib/libSENSIT_SDK_V2.0.0.a(spi.o)
+                0x00000000080030a0                SPI_write_read
  .text.Reset_Handler
-                0x0000000008003000       0x80 lib/libSENSIT_SDK_V2.0.0.a(startup_stm32f042x6.o)
-                0x0000000008003000                Reset_Handler
+                0x00000000080030cc       0x80 lib/libSENSIT_SDK_V2.0.0.a(startup_stm32f042x6.o)
+                0x00000000080030cc                Reset_Handler
  .text.Default_Handler
-                0x0000000008003080        0x2 lib/libSENSIT_SDK_V2.0.0.a(startup_stm32f042x6.o)
-                0x0000000008003080                TIM1_BRK_UP_TRG_COM_IRQHandler
-                0x0000000008003080                TSC_IRQHandler
-                0x0000000008003080                SysTick_Handler
-                0x0000000008003080                PendSV_Handler
-                0x0000000008003080                I2C1_IRQHandler
-                0x0000000008003080                RCC_CRS_IRQHandler
-                0x0000000008003080                SPI1_IRQHandler
-                0x0000000008003080                EXTI2_3_IRQHandler
-                0x0000000008003080                ADC1_IRQHandler
-                0x0000000008003080                TIM17_IRQHandler
-                0x0000000008003080                CEC_CAN_IRQHandler
-                0x0000000008003080                PVD_VDDIO2_IRQHandler
-                0x0000000008003080                TIM3_IRQHandler
-                0x0000000008003080                DMA1_Channel1_IRQHandler
-                0x0000000008003080                Default_Handler
-                0x0000000008003080                TIM14_IRQHandler
-                0x0000000008003080                DMA1_Channel4_5_IRQHandler
-                0x0000000008003080                EXTI0_1_IRQHandler
-                0x0000000008003080                SPI2_IRQHandler
-                0x0000000008003080                SVC_Handler
-                0x0000000008003080                DMA1_Channel2_3_IRQHandler
-                0x0000000008003080                USART2_IRQHandler
-                0x0000000008003080                FLASH_IRQHandler
-                0x0000000008003080                TIM1_CC_IRQHandler
- *fill*         0x0000000008003082        0x2 
+                0x000000000800314c        0x2 lib/libSENSIT_SDK_V2.0.0.a(startup_stm32f042x6.o)
+                0x000000000800314c                TIM1_BRK_UP_TRG_COM_IRQHandler
+                0x000000000800314c                TSC_IRQHandler
+                0x000000000800314c                SysTick_Handler
+                0x000000000800314c                PendSV_Handler
+                0x000000000800314c                I2C1_IRQHandler
+                0x000000000800314c                RCC_CRS_IRQHandler
+                0x000000000800314c                SPI1_IRQHandler
+                0x000000000800314c                EXTI2_3_IRQHandler
+                0x000000000800314c                ADC1_IRQHandler
+                0x000000000800314c                TIM17_IRQHandler
+                0x000000000800314c                CEC_CAN_IRQHandler
+                0x000000000800314c                PVD_VDDIO2_IRQHandler
+                0x000000000800314c                TIM3_IRQHandler
+                0x000000000800314c                DMA1_Channel1_IRQHandler
+                0x000000000800314c                Default_Handler
+                0x000000000800314c                TIM14_IRQHandler
+                0x000000000800314c                DMA1_Channel4_5_IRQHandler
+                0x000000000800314c                EXTI0_1_IRQHandler
+                0x000000000800314c                SPI2_IRQHandler
+                0x000000000800314c                SVC_Handler
+                0x000000000800314c                DMA1_Channel2_3_IRQHandler
+                0x000000000800314c                USART2_IRQHandler
+                0x000000000800314c                FLASH_IRQHandler
+                0x000000000800314c                TIM1_CC_IRQHandler
+ *fill*         0x000000000800314e        0x2 
  .text.SystemInit
-                0x0000000008003084      0x178 lib/libSENSIT_SDK_V2.0.0.a(system_stm32f0xx.o)
-                0x0000000008003084                SystemInit
+                0x0000000008003150      0x178 lib/libSENSIT_SDK_V2.0.0.a(system_stm32f0xx.o)
+                0x0000000008003150                SystemInit
  .text.SYSTICK_wait_ms
-                0x00000000080031fc       0x84 lib/libSENSIT_SDK_V2.0.0.a(systick.o)
-                0x00000000080031fc                SYSTICK_wait_ms
+                0x00000000080032c8       0x84 lib/libSENSIT_SDK_V2.0.0.a(systick.o)
+                0x00000000080032c8                SYSTICK_wait_ms
  .text.SYSTICK_wait_tick
-                0x0000000008003280       0x38 lib/libSENSIT_SDK_V2.0.0.a(systick.o)
-                0x0000000008003280                SYSTICK_wait_tick
+                0x000000000800334c       0x38 lib/libSENSIT_SDK_V2.0.0.a(systick.o)
+                0x000000000800334c                SYSTICK_wait_tick
  .text.USART1_IRQHandler
-                0x00000000080032b8       0x68 lib/libSENSIT_SDK_V2.0.0.a(uart.o)
-                0x00000000080032b8                USART1_IRQHandler
+                0x0000000008003384       0x68 lib/libSENSIT_SDK_V2.0.0.a(uart.o)
+                0x0000000008003384                USART1_IRQHandler
  .text.HAL_PCD_SetupStageCallback
-                0x0000000008003320       0x14 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003320                HAL_PCD_SetupStageCallback
+                0x00000000080033ec       0x14 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x00000000080033ec                HAL_PCD_SetupStageCallback
  .text.HAL_PCD_DataOutStageCallback
-                0x0000000008003334       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003334                HAL_PCD_DataOutStageCallback
+                0x0000000008003400       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x0000000008003400                HAL_PCD_DataOutStageCallback
  .text.HAL_PCD_DataInStageCallback
-                0x000000000800334c       0x16 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x000000000800334c                HAL_PCD_DataInStageCallback
+                0x0000000008003418       0x16 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x0000000008003418                HAL_PCD_DataInStageCallback
  .text.HAL_PCD_SOFCallback
-                0x0000000008003362        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003362                HAL_PCD_SOFCallback
+                0x000000000800342e        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x000000000800342e                HAL_PCD_SOFCallback
  .text.HAL_PCD_ResetCallback
-                0x0000000008003370       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003370                HAL_PCD_ResetCallback
+                0x000000000800343c       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x000000000800343c                HAL_PCD_ResetCallback
  .text.HAL_PCD_SuspendCallback
-                0x0000000008003388        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003388                HAL_PCD_SuspendCallback
+                0x0000000008003454        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x0000000008003454                HAL_PCD_SuspendCallback
  .text.HAL_PCD_ResumeCallback
-                0x0000000008003396        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003396                HAL_PCD_ResumeCallback
+                0x0000000008003462        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x0000000008003462                HAL_PCD_ResumeCallback
  .text.USBD_LL_OpenEP
-                0x00000000080033a4       0x16 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x00000000080033a4                USBD_LL_OpenEP
+                0x0000000008003470       0x16 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x0000000008003470                USBD_LL_OpenEP
  .text.USBD_LL_StallEP
-                0x00000000080033ba       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x00000000080033ba                USBD_LL_StallEP
+                0x0000000008003486       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x0000000008003486                USBD_LL_StallEP
  .text.USBD_LL_ClearStallEP
-                0x00000000080033ca       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x00000000080033ca                USBD_LL_ClearStallEP
+                0x0000000008003496       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x0000000008003496                USBD_LL_ClearStallEP
  .text.USBD_LL_IsStallEP
-                0x00000000080033da       0x26 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x00000000080033da                USBD_LL_IsStallEP
+                0x00000000080034a6       0x26 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x00000000080034a6                USBD_LL_IsStallEP
  .text.USBD_LL_SetUSBAddress
-                0x0000000008003400       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003400                USBD_LL_SetUSBAddress
+                0x00000000080034cc       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x00000000080034cc                USBD_LL_SetUSBAddress
  .text.USBD_LL_Transmit
-                0x0000000008003410       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003410                USBD_LL_Transmit
+                0x00000000080034dc       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x00000000080034dc                USBD_LL_Transmit
  .text.USBD_LL_PrepareReceive
-                0x0000000008003420       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003420                USBD_LL_PrepareReceive
+                0x00000000080034ec       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x00000000080034ec                USBD_LL_PrepareReceive
  .text.USB_IRQHandler
-                0x0000000008003430       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
-                0x0000000008003430                USB_IRQHandler
+                0x00000000080034fc       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x00000000080034fc                USB_IRQHandler
  .text.USBD_SetClassConfig
-                0x0000000008003440       0x1a lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x0000000008003440                USBD_SetClassConfig
+                0x000000000800350c       0x1a lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x000000000800350c                USBD_SetClassConfig
  .text.USBD_ClrClassConfig
-                0x000000000800345a       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x000000000800345a                USBD_ClrClassConfig
- *fill*         0x000000000800346a        0x2 
+                0x0000000008003526       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x0000000008003526                USBD_ClrClassConfig
+ *fill*         0x0000000008003536        0x2 
  .text.USBD_LL_SetupStage
-                0x000000000800346c       0x68 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x000000000800346c                USBD_LL_SetupStage
+                0x0000000008003538       0x68 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x0000000008003538                USBD_LL_SetupStage
  .text.USBD_LL_DataOutStage
-                0x00000000080034d4       0x74 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x00000000080034d4                USBD_LL_DataOutStage
+                0x00000000080035a0       0x74 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x00000000080035a0                USBD_LL_DataOutStage
  .text.USBD_LL_DataInStage
-                0x0000000008003548       0xac lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x0000000008003548                USBD_LL_DataInStage
+                0x0000000008003614       0xac lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x0000000008003614                USBD_LL_DataInStage
  .text.USBD_LL_Reset
-                0x00000000080035f4       0x48 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x00000000080035f4                USBD_LL_Reset
+                0x00000000080036c0       0x48 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x00000000080036c0                USBD_LL_Reset
  .text.USBD_LL_SetSpeed
-                0x000000000800363c        0x6 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x000000000800363c                USBD_LL_SetSpeed
+                0x0000000008003708        0x6 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x0000000008003708                USBD_LL_SetSpeed
  .text.USBD_LL_Suspend
-                0x0000000008003642       0x16 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x0000000008003642                USBD_LL_Suspend
+                0x000000000800370e       0x16 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x000000000800370e                USBD_LL_Suspend
  .text.USBD_LL_Resume
-                0x0000000008003658        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x0000000008003658                USBD_LL_Resume
+                0x0000000008003724        0xe lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x0000000008003724                USBD_LL_Resume
  .text.USBD_LL_SOF
-                0x0000000008003666       0x1e lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
-                0x0000000008003666                USBD_LL_SOF
+                0x0000000008003732       0x1e lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x0000000008003732                USBD_LL_SOF
  .text.USBD_CtlError.constprop.0
-                0x0000000008003684       0x14 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
+                0x0000000008003750       0x14 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
  .text.USBD_StdDevReq
-                0x0000000008003698      0x224 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
-                0x0000000008003698                USBD_StdDevReq
+                0x0000000008003764      0x224 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
+                0x0000000008003764                USBD_StdDevReq
  .text.USBD_StdItfReq
-                0x00000000080038bc       0x38 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
-                0x00000000080038bc                USBD_StdItfReq
+                0x0000000008003988       0x38 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
+                0x0000000008003988                USBD_StdItfReq
  .text.USBD_StdEPReq
-                0x00000000080038f4       0xd4 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
-                0x00000000080038f4                USBD_StdEPReq
+                0x00000000080039c0       0xd4 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
+                0x00000000080039c0                USBD_StdEPReq
  .text.USBD_ParseSetupRequest
-                0x00000000080039c8       0x28 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
-                0x00000000080039c8                USBD_ParseSetupRequest
+                0x0000000008003a94       0x28 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
+                0x0000000008003a94                USBD_ParseSetupRequest
  .text.USBD_CtlSendData
-                0x00000000080039f0       0x1c lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
-                0x00000000080039f0                USBD_CtlSendData
+                0x0000000008003abc       0x1c lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
+                0x0000000008003abc                USBD_CtlSendData
  .text.USBD_CtlContinueSendData
-                0x0000000008003a0c       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
-                0x0000000008003a0c                USBD_CtlContinueSendData
+                0x0000000008003ad8       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
+                0x0000000008003ad8                USBD_CtlContinueSendData
  .text.USBD_CtlContinueRx
-                0x0000000008003a1c       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
-                0x0000000008003a1c                USBD_CtlContinueRx
+                0x0000000008003ae8       0x10 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
+                0x0000000008003ae8                USBD_CtlContinueRx
  .text.USBD_CtlSendStatus
-                0x0000000008003a2c       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
-                0x0000000008003a2c                USBD_CtlSendStatus
+                0x0000000008003af8       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
+                0x0000000008003af8                USBD_CtlSendStatus
  .text.USBD_CtlReceiveStatus
-                0x0000000008003a44       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
-                0x0000000008003a44                USBD_CtlReceiveStatus
+                0x0000000008003b10       0x18 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
+                0x0000000008003b10                USBD_CtlReceiveStatus
  .text.WATCHDOG_clear
-                0x0000000008003a5c       0x10 lib/libSENSIT_SDK_V2.0.0.a(watchdog.o)
-                0x0000000008003a5c                WATCHDOG_clear
+                0x0000000008003b28       0x10 lib/libSENSIT_SDK_V2.0.0.a(watchdog.o)
+                0x0000000008003b28                WATCHDOG_clear
  .text.ADC_init
-                0x0000000008003a6c       0x88 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
-                0x0000000008003a6c                ADC_init
+                0x0000000008003b38       0x88 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
+                0x0000000008003b38                ADC_init
  .text.ADC_measure_battery
-                0x0000000008003af4       0x84 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
-                0x0000000008003af4                ADC_measure_battery
+                0x0000000008003bc0       0x84 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
+                0x0000000008003bc0                ADC_measure_battery
  .text.ADC_get_last_battery_level
-                0x0000000008003b78        0xc lib/libSENSIT_SDK_V2.0.0.a(adc.o)
-                0x0000000008003b78                ADC_get_last_battery_level
+                0x0000000008003c44        0xc lib/libSENSIT_SDK_V2.0.0.a(adc.o)
+                0x0000000008003c44                ADC_get_last_battery_level
  .text.ADC_get_battery_level
-                0x0000000008003b84       0x10 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
-                0x0000000008003b84                ADC_get_battery_level
+                0x0000000008003c50       0x10 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
+                0x0000000008003c50                ADC_get_battery_level
  .text.ADC_measure_temperature
-                0x0000000008003b94       0x68 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
-                0x0000000008003b94                ADC_measure_temperature
+                0x0000000008003c60       0x68 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
+                0x0000000008003c60                ADC_measure_temperature
  .text.AESEncode
-                0x0000000008003bfc      0x1c0 lib/libSENSIT_SDK_V2.0.0.a(aes.o)
-                0x0000000008003bfc                AESEncode
+                0x0000000008003cc8      0x1c0 lib/libSENSIT_SDK_V2.0.0.a(aes.o)
+                0x0000000008003cc8                AESEncode
  .text.calibReadHSI48clk
-                0x0000000008003dbc       0x84 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
+                0x0000000008003e88       0x84 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
  .text.calibRTCclkIsCalibrated
-                0x0000000008003e40      0x1a0 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
-                0x0000000008003e40                calibRTCclkIsCalibrated
+                0x0000000008003f0c      0x1a0 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
+                0x0000000008003f0c                calibRTCclkIsCalibrated
  .text.calibHSI48clkIsCalibrated
-                0x0000000008003fe0       0x90 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
-                0x0000000008003fe0                calibHSI48clkIsCalibrated
+                0x00000000080040ac       0x90 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
+                0x00000000080040ac                calibHSI48clkIsCalibrated
  .text.CC1125_send_strobe
-                0x0000000008004070       0x2c lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
-                0x0000000008004070                CC1125_send_strobe
+                0x000000000800413c       0x2c lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
+                0x000000000800413c                CC1125_send_strobe
  .text.CC1125_write_reg
-                0x000000000800409c       0x54 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
-                0x000000000800409c                CC1125_write_reg
+                0x0000000008004168       0x54 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
+                0x0000000008004168                CC1125_write_reg
  .text.CC1125_read_reg
-                0x00000000080040f0       0x54 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
-                0x00000000080040f0                CC1125_read_reg
+                0x00000000080041bc       0x54 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
+                0x00000000080041bc                CC1125_read_reg
  .text.CC1125_output_clock
-                0x0000000008004144       0x18 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
-                0x0000000008004144                CC1125_output_clock
+                0x0000000008004210       0x18 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
+                0x0000000008004210                CC1125_output_clock
  .text.CRC_compute
-                0x000000000800415c       0x4c lib/libSENSIT_SDK_V2.0.0.a(crc.o)
-                0x000000000800415c                CRC_compute
+                0x0000000008004228       0x4c lib/libSENSIT_SDK_V2.0.0.a(crc.o)
+                0x0000000008004228                CRC_compute
  .text.FLASH_unlock
-                0x00000000080041a8       0x3c lib/libSENSIT_SDK_V2.0.0.a(flash.o)
-                0x00000000080041a8                FLASH_unlock
+                0x0000000008004274       0x3c lib/libSENSIT_SDK_V2.0.0.a(flash.o)
+                0x0000000008004274                FLASH_unlock
  .text.FLASH_lock
-                0x00000000080041e4       0x14 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
-                0x00000000080041e4                FLASH_lock
+                0x00000000080042b0       0x14 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
+                0x00000000080042b0                FLASH_lock
  .text.FLASH_write
-                0x00000000080041f8       0x40 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
-                0x00000000080041f8                FLASH_write
+                0x00000000080042c4       0x40 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
+                0x00000000080042c4                FLASH_write
  .text.FLASH_erase_page
-                0x0000000008004238       0x90 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
-                0x0000000008004238                FLASH_erase_page
+                0x0000000008004304       0x90 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
+                0x0000000008004304                FLASH_erase_page
  .text._handler
-                0x00000000080042c8       0x44 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
+                0x0000000008004394       0x44 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
  .text.GPIO_init
-                0x000000000800430c       0xcc lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
-                0x000000000800430c                GPIO_init
+                0x00000000080043d8       0xcc lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
+                0x00000000080043d8                GPIO_init
  .text.EXTI4_15_IRQHandler
-                0x00000000080043d8       0x88 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
-                0x00000000080043d8                EXTI4_15_IRQHandler
+                0x00000000080044a4       0x88 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
+                0x00000000080044a4                EXTI4_15_IRQHandler
  .text.HardFault_Handler
-                0x0000000008004460        0x8 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
-                0x0000000008004460                HardFault_Handler
+                0x000000000800452c        0x8 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
+                0x000000000800452c                HardFault_Handler
  .text.NMI_Handler
-                0x0000000008004468        0x8 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
-                0x0000000008004468                NMI_Handler
+                0x0000000008004534        0x8 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
+                0x0000000008004534                NMI_Handler
  .text.WWDG_IRQHandler
-                0x0000000008004470        0x8 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
-                0x0000000008004470                WWDG_IRQHandler
+                0x000000000800453c        0x8 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
+                0x000000000800453c                WWDG_IRQHandler
  .text.I2C_init
-                0x0000000008004478       0x30 lib/libSENSIT_SDK_V2.0.0.a(i2c.o)
-                0x0000000008004478                I2C_init
+                0x0000000008004544       0x30 lib/libSENSIT_SDK_V2.0.0.a(i2c.o)
+                0x0000000008004544                I2C_init
  .text.I2C_write_read
-                0x00000000080044a8      0x160 lib/libSENSIT_SDK_V2.0.0.a(i2c.o)
-                0x00000000080044a8                I2C_write_read
+                0x0000000008004574      0x160 lib/libSENSIT_SDK_V2.0.0.a(i2c.o)
+                0x0000000008004574                I2C_write_read
  .text.LED_set_toggle_color
-                0x0000000008004608        0xc lib/libSENSIT_SDK_V2.0.0.a(led.o)
-                0x0000000008004608                LED_set_toggle_color
+                0x00000000080046d4        0xc lib/libSENSIT_SDK_V2.0.0.a(led.o)
+                0x00000000080046d4                LED_set_toggle_color
  .text.LED_toggle
-                0x0000000008004614       0x5c lib/libSENSIT_SDK_V2.0.0.a(led.o)
-                0x0000000008004614                LED_toggle
+                0x00000000080046e0       0x5c lib/libSENSIT_SDK_V2.0.0.a(led.o)
+                0x00000000080046e0                LED_toggle
  .text.my_memcpy
-                0x0000000008004670       0x1c lib/libSENSIT_SDK_V2.0.0.a(my_string.o)
-                0x0000000008004670                my_memcpy
+                0x000000000800473c       0x1c lib/libSENSIT_SDK_V2.0.0.a(my_string.o)
+                0x000000000800473c                my_memcpy
  .text.my_memcmp
-                0x000000000800468c       0x1c lib/libSENSIT_SDK_V2.0.0.a(my_string.o)
-                0x000000000800468c                my_memcmp
+                0x0000000008004758       0x1c lib/libSENSIT_SDK_V2.0.0.a(my_string.o)
+                0x0000000008004758                my_memcmp
  .text.RF_API_init
-                0x00000000080046a8       0x64 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
-                0x00000000080046a8                RF_API_init
+                0x0000000008004774       0x64 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+                0x0000000008004774                RF_API_init
  .text.RF_API_stop
-                0x000000000800470c       0x28 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
-                0x000000000800470c                RF_API_stop
+                0x00000000080047d8       0x28 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+                0x00000000080047d8                RF_API_stop
  .text.RF_API_send
-                0x0000000008004734       0x3c lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
-                0x0000000008004734                RF_API_send
+                0x0000000008004800       0x3c lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+                0x0000000008004800                RF_API_send
  .text.RF_API_change_frequency
-                0x0000000008004770      0x180 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
-                0x0000000008004770                RF_API_change_frequency
+                0x000000000800483c      0x180 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+                0x000000000800483c                RF_API_change_frequency
  .text.RF_API_wait_frame
-                0x00000000080048f0       0xe0 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
-                0x00000000080048f0                RF_API_wait_frame
+                0x00000000080049bc       0xe0 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+                0x00000000080049bc                RF_API_wait_frame
  .text.RF_API_wait_for_clear_channel
-                0x00000000080049d0       0xb0 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
-                0x00000000080049d0                RF_API_wait_for_clear_channel
+                0x0000000008004a9c       0xb0 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+                0x0000000008004a9c                RF_API_wait_for_clear_channel
  .text.SIGFOX_CRC_crc16
-                0x0000000008004a80       0x3c lib/libSENSIT_SDK_V2.0.0.a(sigfox_crc.o)
-                0x0000000008004a80                SIGFOX_CRC_crc16
+                0x0000000008004b4c       0x3c lib/libSENSIT_SDK_V2.0.0.a(sigfox_crc.o)
+                0x0000000008004b4c                SIGFOX_CRC_crc16
  .text.SIGFOX_CRC_crc8
-                0x0000000008004abc       0x34 lib/libSENSIT_SDK_V2.0.0.a(sigfox_crc.o)
-                0x0000000008004abc                SIGFOX_CRC_crc8
+                0x0000000008004b88       0x34 lib/libSENSIT_SDK_V2.0.0.a(sigfox_crc.o)
+                0x0000000008004b88                SIGFOX_CRC_crc8
  .text.SIGFOX_DECODE_dewhitening_pn
-                0x0000000008004af0       0x26 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
- *fill*         0x0000000008004b16        0x2 
+                0x0000000008004bbc       0x26 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
+ *fill*         0x0000000008004be2        0x2 
  .text.SIGFOX_DECODE_decode_frame
-                0x0000000008004b18      0x164 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
-                0x0000000008004b18                SIGFOX_DECODE_decode_frame
+                0x0000000008004be4      0x164 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
+                0x0000000008004be4                SIGFOX_DECODE_decode_frame
  .text.SIGFOX_HMAC_compute_aes
-                0x0000000008004c7c       0x54 lib/libSENSIT_SDK_V2.0.0.a(sigfox_hmac.o)
-                0x0000000008004c7c                SIGFOX_HMAC_compute_aes
+                0x0000000008004d48       0x54 lib/libSENSIT_SDK_V2.0.0.a(sigfox_hmac.o)
+                0x0000000008004d48                SIGFOX_HMAC_compute_aes
  .text.PCD_WritePMA
-                0x0000000008004cd0       0x28 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x0000000008004d9c       0x28 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
  .text.PCD_ReadPMA
-                0x0000000008004cf8       0x20 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x0000000008004dc4       0x20 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
  .text.HAL_PCD_SetAddress
-                0x0000000008004d18       0x2c lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
-                0x0000000008004d18                HAL_PCD_SetAddress
+                0x0000000008004de4       0x2c lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x0000000008004de4                HAL_PCD_SetAddress
  .text.HAL_PCD_EP_Open
-                0x0000000008004d44      0x2b0 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
-                0x0000000008004d44                HAL_PCD_EP_Open
+                0x0000000008004e10      0x2b0 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x0000000008004e10                HAL_PCD_EP_Open
  .text.HAL_PCD_EP_Receive
-                0x0000000008004ff4       0xe8 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
-                0x0000000008004ff4                HAL_PCD_EP_Receive
+                0x00000000080050c0       0xe8 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x00000000080050c0                HAL_PCD_EP_Receive
  .text.HAL_PCD_EP_Transmit
-                0x00000000080050dc      0x1e4 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
-                0x00000000080050dc                HAL_PCD_EP_Transmit
+                0x00000000080051a8      0x1e4 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x00000000080051a8                HAL_PCD_EP_Transmit
  .text.HAL_PCD_IRQHandler
-                0x00000000080052c0      0x464 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
-                0x00000000080052c0                HAL_PCD_IRQHandler
+                0x000000000800538c      0x464 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x000000000800538c                HAL_PCD_IRQHandler
  .text.HAL_PCD_EP_SetStall
-                0x0000000008005724       0x90 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
-                0x0000000008005724                HAL_PCD_EP_SetStall
+                0x00000000080057f0       0x90 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x00000000080057f0                HAL_PCD_EP_SetStall
  .text.HAL_PCD_EP_ClrStall
-                0x00000000080057b4       0xbc lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
-                0x00000000080057b4                HAL_PCD_EP_ClrStall
+                0x0000000008005880       0xbc lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x0000000008005880                HAL_PCD_EP_ClrStall
  .text.MODULATION_ramp_up
-                0x0000000008005870       0x28 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
+                0x000000000800593c       0x28 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
  .text.MODULATION_ramp_down
-                0x0000000008005898       0x2c lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
+                0x0000000008005964       0x2c lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
  .text.MODULATION_init
-                0x00000000080058c4       0xe0 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
-                0x00000000080058c4                MODULATION_init
+                0x0000000008005990       0xe0 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
+                0x0000000008005990                MODULATION_init
  .text.MODULATION_stop
-                0x00000000080059a4       0x3c lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
-                0x00000000080059a4                MODULATION_stop
+                0x0000000008005a70       0x3c lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
+                0x0000000008005a70                MODULATION_stop
  .text.MODULATION_process
-                0x00000000080059e0       0xa4 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
-                0x00000000080059e0                MODULATION_process
+                0x0000000008005aac       0xa4 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
+                0x0000000008005aac                MODULATION_process
  .text.TIM2_IRQHandler
-                0x0000000008005a84       0x2c lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
-                0x0000000008005a84                TIM2_IRQHandler
+                0x0000000008005b50       0x2c lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
+                0x0000000008005b50                TIM2_IRQHandler
  .text.__libc_init_array
-                0x0000000008005ab0       0x44 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
-                0x0000000008005ab0                __libc_init_array
- .text.memset   0x0000000008005af4       0xa8 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
-                0x0000000008005af4                memset
+                0x0000000008005b7c       0x44 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-init.o)
+                0x0000000008005b7c                __libc_init_array
+ .text.memset   0x0000000008005bc0       0xa8 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp/libc.a(lib_a-memset.o)
+                0x0000000008005bc0                memset
  *(.glue_7)
- .glue_7        0x0000000008005b9c        0x0 linker stubs
+ .glue_7        0x0000000008005c68        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0000000008005b9c        0x0 linker stubs
+ .glue_7t       0x0000000008005c68        0x0 linker stubs
  *(.eh_frame)
  *(.init)
  *(.fini)
-                0x0000000008005b9c                . = ALIGN (0x4)
-                0x0000000008005b9c                _etext = .
+                0x0000000008005c68                . = ALIGN (0x4)
+                0x0000000008005c68                _etext = .
 
-.vfp11_veneer   0x0000000008005b9c        0x0
- .vfp11_veneer  0x0000000008005b9c        0x0 linker stubs
+.vfp11_veneer   0x0000000008005c68        0x0
+ .vfp11_veneer  0x0000000008005c68        0x0 linker stubs
 
-.v4_bx          0x0000000008005b9c        0x0
- .v4_bx         0x0000000008005b9c        0x0 linker stubs
+.v4_bx          0x0000000008005c68        0x0
+ .v4_bx         0x0000000008005c68        0x0 linker stubs
 
-.iplt           0x0000000008005b9c        0x0
- .iplt          0x0000000008005b9c        0x0 obj/error.o
+.iplt           0x0000000008005c68        0x0
+ .iplt          0x0000000008005c68        0x0 obj/error.o
 
-.rodata         0x0000000008005b9c      0x3f0
-                0x0000000008005b9c                . = ALIGN (0x4)
+.rodata         0x0000000008005c68      0x3f0
+                0x0000000008005c68                . = ALIGN (0x4)
  *(.rodata)
- .rodata        0x0000000008005b9c       0x10 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
- .rodata        0x0000000008005bac       0x34 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
-                0x0000000008005bac                fsync_lut_tx
-                0x0000000008005bd0                public_key
- .rodata        0x0000000008005be0       0x10 lib/libSENSIT_SDK_V2.0.0.a(sigfox_scramb.o)
- .rodata        0x0000000008005bf0      0x100 lib/libSENSIT_SDK_V2.0.0.a(aes.o)
-                0x0000000008005bf0                STable
- .rodata        0x0000000008005cf0      0x190 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
- .rodata        0x0000000008005e80       0x20 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
-                0x0000000008005e80                pow_alpha
-                0x0000000008005e90                log_alpha
- .rodata        0x0000000008005ea0       0xac /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
- .rodata        0x0000000008005f4c       0x40 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
+ .rodata        0x0000000008005c68       0x10 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+ .rodata        0x0000000008005c78       0x34 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000008005c78                fsync_lut_tx
+                0x0000000008005c9c                public_key
+ .rodata        0x0000000008005cac       0x10 lib/libSENSIT_SDK_V2.0.0.a(sigfox_scramb.o)
+ .rodata        0x0000000008005cbc      0x100 lib/libSENSIT_SDK_V2.0.0.a(aes.o)
+                0x0000000008005cbc                STable
+ .rodata        0x0000000008005dbc      0x190 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+ .rodata        0x0000000008005f4c       0x20 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
+                0x0000000008005f4c                pow_alpha
+                0x0000000008005f5c                log_alpha
+ .rodata        0x0000000008005f6c       0xac /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v6-m/nofp/libgcc.a(divsf3.o)
+ .rodata        0x0000000008006018       0x40 /Users/Amchikak/Desktop/gcc-arm-none-eabi-8-2019-q3-update/bin/../lib/gcc/arm-none-eabi/8.3.1/thumb/v6-m/nofp/libgcc.a(mulsf3.o)
  *(.rodata*)
-                0x0000000008005f8c                . = ALIGN (0x4)
+                0x0000000008006058                . = ALIGN (0x4)
 
-.rel.dyn        0x0000000008005f8c        0x0
- .rel.iplt      0x0000000008005f8c        0x0 obj/error.o
+.rel.dyn        0x0000000008006058        0x0
+ .rel.iplt      0x0000000008006058        0x0 obj/error.o
 
-.ARM.extab      0x0000000008005f8c        0x0
-                0x0000000008005f8c                . = ALIGN (0x4)
+.ARM.extab      0x0000000008006058        0x0
+                0x0000000008006058                . = ALIGN (0x4)
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0000000008005f8c                . = ALIGN (0x4)
+                0x0000000008006058                . = ALIGN (0x4)
 
-.ARM            0x0000000008005f8c        0x0
-                0x0000000008005f8c                . = ALIGN (0x4)
-                0x0000000008005f8c                __exidx_start = .
+.ARM            0x0000000008006058        0x0
+                0x0000000008006058                . = ALIGN (0x4)
+                0x0000000008006058                __exidx_start = .
  *(.ARM.exidx*)
-                0x0000000008005f8c                __exidx_end = .
-                0x0000000008005f8c                . = ALIGN (0x4)
+                0x0000000008006058                __exidx_end = .
+                0x0000000008006058                . = ALIGN (0x4)
 
-.preinit_array  0x0000000008005f8c        0x0
-                0x0000000008005f8c                . = ALIGN (0x4)
-                0x0000000008005f8c                PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0000000008006058        0x0
+                0x0000000008006058                . = ALIGN (0x4)
+                0x0000000008006058                PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0000000008005f8c                PROVIDE (__preinit_array_end = .)
-                0x0000000008005f8c                . = ALIGN (0x4)
+                0x0000000008006058                PROVIDE (__preinit_array_end = .)
+                0x0000000008006058                . = ALIGN (0x4)
 
-.init_array     0x0000000008005f8c        0x0
-                0x0000000008005f8c                . = ALIGN (0x4)
-                0x0000000008005f8c                PROVIDE (__init_array_start = .)
+.init_array     0x0000000008006058        0x0
+                0x0000000008006058                . = ALIGN (0x4)
+                0x0000000008006058                PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array*)
-                0x0000000008005f8c                PROVIDE (__init_array_end = .)
-                0x0000000008005f8c                . = ALIGN (0x4)
+                0x0000000008006058                PROVIDE (__init_array_end = .)
+                0x0000000008006058                . = ALIGN (0x4)
 
-.fini_array     0x0000000008005f8c        0x0
-                0x0000000008005f8c                . = ALIGN (0x4)
+.fini_array     0x0000000008006058        0x0
+                0x0000000008006058                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array*)
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000008005f8c                . = ALIGN (0x4)
-                0x0000000008005f8c                _sidata = LOADADDR (.data)
+                0x0000000008006058                . = ALIGN (0x4)
+                0x0000000008006058                _sidata = LOADADDR (.data)
 
-.data           0x0000000020000000      0x1e8 load address 0x0000000008005f8c
+.data           0x0000000020000000      0x1e8 load address 0x0000000008006058
                 0x0000000020000000                . = ALIGN (0x4)
                 0x0000000020000000                _sdata = .
  *(.data)
@@ -1610,11 +1603,11 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
  *fill*         0x00000000200001e7        0x1 
                 0x00000000200001e8                _edata = .
 
-.igot.plt       0x00000000200001e8        0x0 load address 0x0000000008006174
+.igot.plt       0x00000000200001e8        0x0 load address 0x0000000008006240
  .igot.plt      0x00000000200001e8        0x0 obj/error.o
                 0x00000000200001e8                . = ALIGN (0x4)
 
-.bss            0x00000000200001e8      0x5d0 load address 0x0000000008006174
+.bss            0x00000000200001e8      0x5d0 load address 0x0000000008006240
                 0x00000000200001e8                _sbss = .
                 0x00000000200001e8                __bss_start__ = _sbss
  *(.bss)
@@ -1665,7 +1658,7 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
                 0x00000000200007b8                __bss_end__ = _ebss
 
 ._user_heap_stack
-                0x00000000200007b8      0x400 load address 0x0000000008006174
+                0x00000000200007b8      0x400 load address 0x0000000008006240
                 0x00000000200007b8                . = ALIGN (0x8)
                 [!provide]                        PROVIDE (end = .)
                 [!provide]                        PROVIDE (_end = .)
@@ -1701,84 +1694,86 @@ LOAD lib/libSENSIT_SDK_V2.0.0.a
  .ARM.attributes
                 0x0000000000000160       0x2c obj/ltr329.o
  .ARM.attributes
-                0x000000000000018c       0x2c obj/discovery.o
+                0x000000000000018c       0x2c obj/fxos8700.o
  .ARM.attributes
-                0x00000000000001b8       0x2c obj/main.o
+                0x00000000000001b8       0x2c obj/discovery.o
  .ARM.attributes
-                0x00000000000001e4       0x31 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
+                0x00000000000001e4       0x2c obj/main.o
  .ARM.attributes
-                0x0000000000000215       0x31 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
+                0x0000000000000210       0x31 lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
  .ARM.attributes
-                0x0000000000000246       0x31 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
+                0x0000000000000241       0x31 lib/libSENSIT_SDK_V2.0.0.a(nvmem_api.o)
  .ARM.attributes
-                0x0000000000000277       0x31 lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
+                0x0000000000000272       0x31 lib/libSENSIT_SDK_V2.0.0.a(radio.o)
  .ARM.attributes
-                0x00000000000002a8       0x31 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
+                0x00000000000002a3       0x31 lib/libSENSIT_SDK_V2.0.0.a(rtc.o)
  .ARM.attributes
-                0x00000000000002d9       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
+                0x00000000000002d4       0x31 lib/libSENSIT_SDK_V2.0.0.a(sensit_api.o)
  .ARM.attributes
-                0x000000000000030a       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
+                0x0000000000000305       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_api.o)
  .ARM.attributes
-                0x000000000000033b       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_pn.o)
+                0x0000000000000336       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_internal.o)
  .ARM.attributes
-                0x000000000000036c       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_scramb.o)
+                0x0000000000000367       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_pn.o)
  .ARM.attributes
-                0x000000000000039d       0x31 lib/libSENSIT_SDK_V2.0.0.a(sleep.o)
+                0x0000000000000398       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_scramb.o)
  .ARM.attributes
-                0x00000000000003ce       0x31 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
+                0x00000000000003c9       0x31 lib/libSENSIT_SDK_V2.0.0.a(sleep.o)
  .ARM.attributes
-                0x00000000000003ff       0x21 lib/libSENSIT_SDK_V2.0.0.a(startup_stm32f042x6.o)
+                0x00000000000003fa       0x31 lib/libSENSIT_SDK_V2.0.0.a(spi.o)
  .ARM.attributes
-                0x0000000000000420       0x31 lib/libSENSIT_SDK_V2.0.0.a(system_stm32f0xx.o)
+                0x000000000000042b       0x21 lib/libSENSIT_SDK_V2.0.0.a(startup_stm32f042x6.o)
  .ARM.attributes
-                0x0000000000000451       0x31 lib/libSENSIT_SDK_V2.0.0.a(systick.o)
+                0x000000000000044c       0x31 lib/libSENSIT_SDK_V2.0.0.a(system_stm32f0xx.o)
  .ARM.attributes
-                0x0000000000000482       0x31 lib/libSENSIT_SDK_V2.0.0.a(uart.o)
+                0x000000000000047d       0x31 lib/libSENSIT_SDK_V2.0.0.a(systick.o)
  .ARM.attributes
-                0x00000000000004b3       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
+                0x00000000000004ae       0x31 lib/libSENSIT_SDK_V2.0.0.a(uart.o)
  .ARM.attributes
-                0x00000000000004e4       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
+                0x00000000000004df       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_conf.o)
  .ARM.attributes
-                0x0000000000000515       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
+                0x0000000000000510       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_core.o)
  .ARM.attributes
-                0x0000000000000546       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
+                0x0000000000000541       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_ctlreq.o)
  .ARM.attributes
-                0x0000000000000577       0x31 lib/libSENSIT_SDK_V2.0.0.a(watchdog.o)
+                0x0000000000000572       0x31 lib/libSENSIT_SDK_V2.0.0.a(usbd_ioreq.o)
  .ARM.attributes
-                0x00000000000005a8       0x31 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
+                0x00000000000005a3       0x31 lib/libSENSIT_SDK_V2.0.0.a(watchdog.o)
  .ARM.attributes
-                0x00000000000005d9       0x31 lib/libSENSIT_SDK_V2.0.0.a(aes.o)
+                0x00000000000005d4       0x31 lib/libSENSIT_SDK_V2.0.0.a(adc.o)
  .ARM.attributes
-                0x000000000000060a       0x31 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
+                0x0000000000000605       0x31 lib/libSENSIT_SDK_V2.0.0.a(aes.o)
  .ARM.attributes
-                0x000000000000063b       0x31 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
+                0x0000000000000636       0x31 lib/libSENSIT_SDK_V2.0.0.a(calib.o)
  .ARM.attributes
-                0x000000000000066c       0x31 lib/libSENSIT_SDK_V2.0.0.a(crc.o)
+                0x0000000000000667       0x31 lib/libSENSIT_SDK_V2.0.0.a(cc1125.o)
  .ARM.attributes
-                0x000000000000069d       0x31 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
+                0x0000000000000698       0x31 lib/libSENSIT_SDK_V2.0.0.a(crc.o)
  .ARM.attributes
-                0x00000000000006ce       0x31 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
+                0x00000000000006c9       0x31 lib/libSENSIT_SDK_V2.0.0.a(flash.o)
  .ARM.attributes
-                0x00000000000006ff       0x31 lib/libSENSIT_SDK_V2.0.0.a(i2c.o)
+                0x00000000000006fa       0x31 lib/libSENSIT_SDK_V2.0.0.a(gpio.o)
  .ARM.attributes
-                0x0000000000000730       0x31 lib/libSENSIT_SDK_V2.0.0.a(led.o)
+                0x000000000000072b       0x31 lib/libSENSIT_SDK_V2.0.0.a(i2c.o)
  .ARM.attributes
-                0x0000000000000761       0x31 lib/libSENSIT_SDK_V2.0.0.a(my_string.o)
+                0x000000000000075c       0x31 lib/libSENSIT_SDK_V2.0.0.a(led.o)
  .ARM.attributes
-                0x0000000000000792       0x31 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
+                0x000000000000078d       0x31 lib/libSENSIT_SDK_V2.0.0.a(my_string.o)
  .ARM.attributes
-                0x00000000000007c3       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_crc.o)
+                0x00000000000007be       0x31 lib/libSENSIT_SDK_V2.0.0.a(rf_api.o)
  .ARM.attributes
-                0x00000000000007f4       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
+                0x00000000000007ef       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_crc.o)
  .ARM.attributes
-                0x0000000000000825       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_hmac.o)
+                0x0000000000000820       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_decode.o)
  .ARM.attributes
-                0x0000000000000856       0x31 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+                0x0000000000000851       0x31 lib/libSENSIT_SDK_V2.0.0.a(sigfox_hmac.o)
  .ARM.attributes
-                0x0000000000000887       0x31 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
+                0x0000000000000882       0x31 lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
+ .ARM.attributes
+                0x00000000000008b3       0x31 lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
 OUTPUT(bin/sensit.elf elf32-littlearm)
 
-.debug_info     0x0000000000000000     0x224c
+.debug_info     0x0000000000000000     0x27ca
  .debug_info    0x0000000000000000      0x3f1 obj/error.o
  .debug_info    0x00000000000003f1      0x206 obj/button.o
  .debug_info    0x00000000000005f7      0x323 obj/battery.o
@@ -1788,10 +1783,11 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_info    0x000000000000104e      0x194 obj/fcc.o
  .debug_info    0x00000000000011e2      0x38f obj/hts221.o
  .debug_info    0x0000000000001571      0x399 obj/ltr329.o
- .debug_info    0x000000000000190a      0x32d obj/discovery.o
- .debug_info    0x0000000000001c37      0x615 obj/main.o
+ .debug_info    0x000000000000190a      0x553 obj/fxos8700.o
+ .debug_info    0x0000000000001e5d      0x32d obj/discovery.o
+ .debug_info    0x000000000000218a      0x640 obj/main.o
 
-.debug_abbrev   0x0000000000000000      0xe00
+.debug_abbrev   0x0000000000000000      0xf82
  .debug_abbrev  0x0000000000000000      0x154 obj/error.o
  .debug_abbrev  0x0000000000000154      0x125 obj/button.o
  .debug_abbrev  0x0000000000000279      0x19e obj/battery.o
@@ -1801,10 +1797,11 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_abbrev  0x0000000000000763      0x131 obj/fcc.o
  .debug_abbrev  0x0000000000000894      0x158 obj/hts221.o
  .debug_abbrev  0x00000000000009ec      0x156 obj/ltr329.o
- .debug_abbrev  0x0000000000000b42       0xf7 obj/discovery.o
- .debug_abbrev  0x0000000000000c39      0x1c7 obj/main.o
+ .debug_abbrev  0x0000000000000b42      0x182 obj/fxos8700.o
+ .debug_abbrev  0x0000000000000cc4       0xf7 obj/discovery.o
+ .debug_abbrev  0x0000000000000dbb      0x1c7 obj/main.o
 
-.debug_loc      0x0000000000000000      0xb40
+.debug_loc      0x0000000000000000      0xdc8
  .debug_loc     0x0000000000000000      0x112 obj/error.o
  .debug_loc     0x0000000000000112       0xb8 obj/button.o
  .debug_loc     0x00000000000001ca       0x8a obj/battery.o
@@ -1813,10 +1810,11 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_loc     0x0000000000000510       0xc6 obj/fcc.o
  .debug_loc     0x00000000000005d6      0x28c obj/hts221.o
  .debug_loc     0x0000000000000862      0x19d obj/ltr329.o
- .debug_loc     0x00000000000009ff       0xa3 obj/discovery.o
- .debug_loc     0x0000000000000aa2       0x9e obj/main.o
+ .debug_loc     0x00000000000009ff      0x289 obj/fxos8700.o
+ .debug_loc     0x0000000000000c88       0xa3 obj/discovery.o
+ .debug_loc     0x0000000000000d2b       0x9d obj/main.o
 
-.debug_aranges  0x0000000000000000      0x190
+.debug_aranges  0x0000000000000000      0x1d8
  .debug_aranges
                 0x0000000000000000       0x28 obj/error.o
  .debug_aranges
@@ -1836,11 +1834,13 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_aranges
                 0x0000000000000118       0x38 obj/ltr329.o
  .debug_aranges
-                0x0000000000000150       0x20 obj/discovery.o
+                0x0000000000000150       0x48 obj/fxos8700.o
  .debug_aranges
-                0x0000000000000170       0x20 obj/main.o
+                0x0000000000000198       0x20 obj/discovery.o
+ .debug_aranges
+                0x00000000000001b8       0x20 obj/main.o
 
-.debug_ranges   0x0000000000000000       0xe0
+.debug_ranges   0x0000000000000000      0x118
  .debug_ranges  0x0000000000000000       0x18 obj/error.o
  .debug_ranges  0x0000000000000018       0x10 obj/button.o
  .debug_ranges  0x0000000000000028       0x10 obj/battery.o
@@ -1850,10 +1850,11 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_ranges  0x0000000000000070       0x10 obj/fcc.o
  .debug_ranges  0x0000000000000080       0x18 obj/hts221.o
  .debug_ranges  0x0000000000000098       0x28 obj/ltr329.o
- .debug_ranges  0x00000000000000c0       0x10 obj/discovery.o
- .debug_ranges  0x00000000000000d0       0x10 obj/main.o
+ .debug_ranges  0x00000000000000c0       0x38 obj/fxos8700.o
+ .debug_ranges  0x00000000000000f8       0x10 obj/discovery.o
+ .debug_ranges  0x0000000000000108       0x10 obj/main.o
 
-.debug_line     0x0000000000000000     0x1165
+.debug_line     0x0000000000000000     0x1518
  .debug_line    0x0000000000000000      0x1c4 obj/error.o
  .debug_line    0x00000000000001c4      0x107 obj/button.o
  .debug_line    0x00000000000002cb      0x10e obj/battery.o
@@ -1863,10 +1864,11 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_line    0x000000000000073e      0x11e obj/fcc.o
  .debug_line    0x000000000000085c      0x2c9 obj/hts221.o
  .debug_line    0x0000000000000b25      0x25e obj/ltr329.o
- .debug_line    0x0000000000000d83      0x1de obj/discovery.o
- .debug_line    0x0000000000000f61      0x204 obj/main.o
+ .debug_line    0x0000000000000d83      0x3a9 obj/fxos8700.o
+ .debug_line    0x000000000000112c      0x1de obj/discovery.o
+ .debug_line    0x000000000000130a      0x20e obj/main.o
 
-.debug_str      0x0000000000000000      0xbe9
+.debug_str      0x0000000000000000      0xd23
  .debug_str     0x0000000000000000      0x305 obj/error.o
                                         0x326 (size before relaxing)
  .debug_str     0x0000000000000305       0x6e obj/button.o
@@ -1885,10 +1887,12 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
                                         0x262 (size before relaxing)
  .debug_str     0x0000000000000871      0x111 obj/ltr329.o
                                         0x2fa (size before relaxing)
- .debug_str     0x0000000000000982      0x1c9 obj/discovery.o
+ .debug_str     0x0000000000000982      0x146 obj/fxos8700.o
+                                        0x332 (size before relaxing)
+ .debug_str     0x0000000000000ac8      0x1c9 obj/discovery.o
                                         0x35c (size before relaxing)
- .debug_str     0x0000000000000b4b       0x9e obj/main.o
-                                        0x58e (size before relaxing)
+ .debug_str     0x0000000000000c91       0x92 obj/main.o
+                                        0x5e5 (size before relaxing)
 
 .comment        0x0000000000000000      0x164
  .comment       0x0000000000000000       0x76 obj/error.o
@@ -1901,6 +1905,7 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .comment       0x0000000000000076       0x77 obj/fcc.o
  .comment       0x0000000000000076       0x77 obj/hts221.o
  .comment       0x0000000000000076       0x77 obj/ltr329.o
+ .comment       0x0000000000000076       0x77 obj/fxos8700.o
  .comment       0x0000000000000076       0x77 obj/discovery.o
  .comment       0x0000000000000076       0x77 obj/main.o
  .comment       0x0000000000000076       0x7e lib/libSENSIT_SDK_V2.0.0.a(mcu_api.o)
@@ -1941,7 +1946,7 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .comment       0x0000000000000164       0x7f lib/libSENSIT_SDK_V2.0.0.a(stm32f0xx_hal_pcd.o)
  .comment       0x0000000000000164       0x7f lib/libSENSIT_SDK_V2.0.0.a(modulation.o)
 
-.debug_frame    0x0000000000000000      0x2a8
+.debug_frame    0x0000000000000000      0x36c
  .debug_frame   0x0000000000000000       0x44 obj/error.o
  .debug_frame   0x0000000000000044       0x30 obj/button.o
  .debug_frame   0x0000000000000074       0x30 obj/battery.o
@@ -1951,5 +1956,6 @@ OUTPUT(bin/sensit.elf elf32-littlearm)
  .debug_frame   0x0000000000000140       0x30 obj/fcc.o
  .debug_frame   0x0000000000000170       0x4c obj/hts221.o
  .debug_frame   0x00000000000001bc       0x88 obj/ltr329.o
- .debug_frame   0x0000000000000244       0x34 obj/discovery.o
- .debug_frame   0x0000000000000278       0x30 obj/main.o
+ .debug_frame   0x0000000000000244       0xc4 obj/fxos8700.o
+ .debug_frame   0x0000000000000308       0x34 obj/discovery.o
+ .debug_frame   0x000000000000033c       0x30 obj/main.o
