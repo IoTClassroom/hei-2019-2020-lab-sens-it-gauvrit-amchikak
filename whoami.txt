@@ -1,4 +1,4 @@
 Sens'it ID: ABCDEF
 Use-case: 3 - Vibration sensing 
-Firstnames: Bob-Jacques
-Lastnames: Dupont-Joe
+Firstnames: Sixtine-Asma
+Lastnames: Gauvrit-Amchikak
